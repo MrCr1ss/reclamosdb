@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        .center {
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 30px;
+        }
+
+        .custom-container {
+            padding-right: 0;
+            padding-left: 0;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 100%;
+        }
+    </style>
+    <title>Lista de Registros</title>
+</head>
+
+<body>
+    <div class="container-fluid custom-container rounded-0">
+        <div class="alert alert-dark display-1 text-center">
+            <img src="{%static 'pokemon_logo.png' %}" width="10%" />
+            StartCoffeUp
+        </div>
+        <main class="container">
+            <div class="jumbotron">
+                <h1 class="center">
+                    Listado de Reclamos
+                </h1>
+                {% if registros %}
+                <table class="table">
+                    <thead>
+                        <tr class="center">
+                            <th>Rut</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Fecha</th>
+                            <th>Descripción</th>
+                            <th>Mensaje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for registro in registros %}
+                        <tr class="center">
+                            <td>{{registro.rut}}</td>
+                            <td>{{registro.nombre}}</td>
+                            <td>{{registro.apellido}}</td>
+                            <td>{{registro.fecha}}</td>
+                            <td>{{registro.descripcion}}</td>
+                            <td>{{registro.mensaje}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <div class="alert alert-warning text-center">
+                    No hay reservas en el sistema
+                </div>
+                {% endif %}
+        </main>
+    </div>
+</body>
+
+</html>

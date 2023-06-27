@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro de Felicitaciones y Reclamos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <style>
+            .adjust{
+                padding-top: 50px;
+                padding-bottom: 30px;
+            }
+            body{
+                background-color: #f5e8d2;
+            }
+        </style>
+</head>
+<body class="container">
+    <div class="container-fluid">
+        <div class="alert alert-light display-1 text-center">
+          <img src="{%static 'pokemon_logo.png' %}" width="10%" />
+          StartCoffeUp
+        </div>
+    <div class="container">
+        <div class="adjust"><div class="display-3 text-center text-dark"><img src={%static '/logo.png' %} width="8%"/>
+        Felicitaciones/Reclamos</div>
+        <br/>
+        
+    <form action="" method="post">
+        <table class="table">
+            {{form.as_table}}
+            {% csrf_token %}
+            <tr>
+                <td colspan="2">
+                    <input type="submit" class="btn btn-dark float-end" value="Guardar">
+                </td>
+            </tr>
+        </table>
+    </form>
+    </main>
+    
+    
+</body>
+</html>
